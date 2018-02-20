@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
     <meta charset="UTF-8">
     <title>Register</title>
+
+
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,8 +24,8 @@
 Name:<br>
 <input id="name" type="text" name="name" placeholder="Enter your name">
 <br>
-Handle:<br>
-<input id="handle" type="text" name="handle" placeholder="Enter the handle you want to use">
+Password:<br>
+<input id="password" type="text"  name="password" placeholder="Enter the password you want to use">
 <br>
 Phone:<br>
 <input id="phone" type="text" name="phone" placeholder="Enter your phone number">
@@ -29,14 +33,28 @@ Phone:<br>
 Email:<br>
 <input id="email" type="email" name="email" placeholder="Enter your email">
 <br><br>
-<input type="submit" value="Submit">
+<input id="rgstr_btn" type="submit" value="Register" onClick="store()">
 </form>
 <form action="http://localhost:8080/login">
-Handle:<br>
-<input id="handle" type="text" name="handle" placeholder="Enter the handle you want to use">
-<br><br><br>
-<input type="submit" value="login">
-</form>
 
+
+<br>
+<input id="login_btn" type="submit" value="Login" onClick="check()">
+</form>
+<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBz3lPZWCc5c1Ooj9XFgU8cYs-s2Szt6Ks",
+        authDomain: "chat-application-43048.firebaseapp.com",
+        databaseURL: "https://chat-application-43048.firebaseio.com",
+        projectId: "chat-application-43048",
+        storageBucket: "chat-application-43048.appspot.com",
+        messagingSenderId: "238477152337"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script src="register.js"></script>
 </body>
 </html>
