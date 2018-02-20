@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <link href='https://fonts.googleapis.com/css?family=Scope One' rel='stylesheet'>
+</head>
+<body>
+
+
+
+<div id="login" class="main-div">
+    <h2>Login</h2>
+    <input id="emailField" type="email" placeholder="Email">
+    <input id="passField" type="password" placeholder="Password">
+    <button onclick="login()">Login</button>
+</div>
+
+<div id="user" class="loggedin-div">
+    <h3 id="welcome">Welcome</h3>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDHfMloIfsuXp-HmfaRPafZ9BDBnY3WraQ",
+        authDomain: "chat-login-d7a16.firebaseapp.com",
+        databaseURL: "https://chat-login-d7a16.firebaseio.com",
+        projectId: "chat-login-d7a16",
+        storageBucket: "chat-login-d7a16.appspot.com",
+        messagingSenderId: "172750171930"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script src="index.js"></script>
+</body>
+</html>

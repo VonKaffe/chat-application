@@ -1,0 +1,52 @@
+body {
+    font-family: 'Scope One';font-size: 22px;
+}
+
+.main-div, .loggedin-div{
+    margin-left:  40%;
+    margin-right:  40%;
+    margin-top: 150px;
+    display: none;
+}
+
+.main-div h2{
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+input[type=email], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    background-color: dodgerblue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: lightskyblue;
+}
