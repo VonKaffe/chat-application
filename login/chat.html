@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link rel="stylesheet" type="text/css" href="../css/chat.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+</head>
+<body>
+
+<div id="chatHeader">
+    <div id="title">
+        <h1>Chat</h1>
+    </div>
+
+    <div id="username-div">
+        <p id="usernameHeader">de</p>
+
+    </div>
+</div>
+
+
+<div id="chat">
+<div id="leftMenu">
+
+    <div id="usersOnline">
+        <h3 id="userOnline-header">Users Online</h3>
+        <ul id="userUl">
+        </ul>
+
+    </div>
+
+</div>
+
+<div id="main">
+
+
+    <div id="chatRoom-div">
+
+
+        <div id="messageRight">
+
+        </div>
+
+        <div id="messageLeft">
+
+        </div>
+
+        <div id="messageRight2">
+
+        </div>
+
+        <input id="writeMessage" placeholder="Write Your Message Here...">
+        <button id="logout" onclick="logout()">Logout</button>
+
+    </div>
+</div>
+
+<div id="rightMenu">
+    <div id="groups">
+        <h3>Groups</h3>
+
+    </div>
+
+</div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDHfMloIfsuXp-HmfaRPafZ9BDBnY3WraQ",
+        authDomain: "chat-login-d7a16.firebaseapp.com",
+        databaseURL: "https://chat-login-d7a16.firebaseio.com",
+        projectId: "chat-login-d7a16",
+        storageBucket: "chat-login-d7a16.appspot.com",
+        messagingSenderId: "172750171930"
+    };
+    firebase.initializeApp(config);
+</script>
+
+<script src="index.js"></script>
+
+</body>
+</html>

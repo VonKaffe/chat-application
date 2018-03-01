@@ -23,6 +23,30 @@ body {
     color: white;
 }
 
+#userOnline-header{
+    border-bottom: solid 1px;
+}
+
+button {
+    width: 100%;
+    background-color: mediumvioletred;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#userUl{
+    list-style: none;
+    padding-left: 0px;
+}
+
+#userUl li{
+    border-bottom: solid 1px;
+}
+
 #groups{
     display: flex;
     flex-direction: column;
@@ -64,7 +88,7 @@ body {
     color: white;
 }
 
-#user{
+#username-div{
     display: flex;
     flex-direction: row;
     align-items: center;
