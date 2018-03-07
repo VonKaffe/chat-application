@@ -74,6 +74,8 @@ function register() {
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
+
+        document.getElementById("usernameHeader").innerHTML = user.displayName;
         console.log(user.currentUser);
 
 
