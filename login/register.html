@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="Jquery/jquery-3.2.1.min.js">
+    <link rel="stylesheet" href="js/bootstrap.min.js">
+</head>
+<body>
+<div id="register">
+    Username:<br>
+    <input id="username" type="text" name="username" placeholder="Enter your username" required>
+    <br>
+    Fullname:<br>
+    <input id="fullname" type="text" name="fullname" placeholder="Enter your fullname" required>
+    <br>
+    Password:<br>
+    <input id="password" type="text"  name="password" placeholder="Enter the password you want to use" required>
+    <br>
+    Email:<br>
+    <input id="email" type="email" name="email" placeholder="Enter your email" required>
+    <br><br>
+    <button onclick="register()">Register</button>
+</div>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCkInBPaJoHPKtdiAhd8DfWrYLFAc0zok0",
+        authDomain: "chat-app-316ca.firebaseapp.com",
+        databaseURL: "https://chat-app-316ca.firebaseio.com",
+        projectId: "chat-app-316ca",
+        storageBucket: "",
+        messagingSenderId: "1085160280325"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+</script>
+<script src="index.js"></script>
+</body>
+</html>
