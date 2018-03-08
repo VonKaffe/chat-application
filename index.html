@@ -2,6 +2,8 @@
 <html lang="en" ng-app="chatApp">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chat-App</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
@@ -24,15 +26,16 @@
 </head>
 <body ng-controller="ChatController">
 <br>
-<div class="container">
+<div id="pana" class="container">
     <div class="panel panel-primary">
         <div class="panel-heading">Chat-App</div>
         <div class="panel-body">
             <p ng-repeat="m in messages">{{m.message}} - {{m.date | date:'medium'}}</p>
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Message here..." ng-model="messageText">
+                <input id="myInput" type="text"  onkeydown = "if (event.keyCode == 13)
+                        document.getElementById('btn').click()" class="form-control" placeholder="Message here..." ng-model="messageText">
             </div>
-            <button type="submit" class="btn btn-default" ng-click="send()">Send</button>
+            <button type="submit" id="btn" class="btn btn-default" ng-click="send()" onclick="document.getElementById('myInput').value = ''">Send</button>
         </div>
 
     </div>
