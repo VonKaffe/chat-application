@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="chatRoom">
 <head>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-messaging.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <meta charset="UTF-8">
     <title>Chat</title>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/chat.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
 <body>
@@ -27,49 +30,102 @@
 
 
 <div id="chat">
-<div id="leftMenu">
+    <div id="leftMenu">
 
-    <div id="usersOnline">
-        <h3 id="userOnline-header">Users Online</h3>
-        <ul id="userUl">
+        <div id="usersOnline">
+            <h3 id="userOnline-header">Users Online</h3>
+            <ul id="userUl">
 
-        </ul>
-
-    </div>
-
-</div>
-
-<div id="main">
-
-
-    <div id="chatRoom-div">
-
-
-        <div id="messageRight">
+            </ul>
 
         </div>
 
-        <div id="messageLeft">
-
-        </div>
-
-        <div id="messageRight2">
-
-        </div>
-
-        <input id="writeMessage" placeholder="Write Your Message Here...">
-        <button id="logout" onclick="logout()">Logout</button>
-
-    </div>
-</div>
-
-<div id="rightMenu">
-    <div id="groups">
-        <h3>Groups</h3>
-
     </div>
 
-</div>
+    <div id="main">
+        <div id="chatRoom-div">
+            <div id="room1" ng-controller="ChatController">
+                <div id="pana" ng-if="selectedRoom == 1" class="container">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Room 1</div>
+                        <div class="panel-body">
+                            <span ng-repeat="m in messages">
+                                <p style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
+                                <p ng-if="currentUser.uid != m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
+                            </span>
+                            <div class="form-group">
+                                <input id="myInput" type="text" onkeydown="if (event.keyCode == 13)
+                            document.getElementById('btn').click()" class="form-control" placeholder="Message here..."
+                                       ng-model="data.messageText">
+                            </div>
+                            <button type="submit" id="btn" class="btn btn-default" ng-click="send()"
+                                    onclick="document.getElementById('myInput').value = ''">Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="room2" ng-controller="ChatController2">
+                <div>
+                    <div id="pana2" ng-if="selectedRoom == 2" class="container">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Room 2</div>
+                            <div class="panel-body">
+                               <span ng-repeat="m in messages">
+                                <p style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
+                                <p ng-if="currentUser.uid != m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
+                            </span>
+                                <div class="form-group">
+                                    <input id="myInput2" type="text" onkeydown="if (event.keyCode == 13)
+                        document.getElementById('btn2').click()" class="form-control" placeholder="Message here..."
+                                           ng-model="data.messageText">
+                                </div>
+                                <button type="submit" id="btn2" class="btn btn-default" ng-click="send()"
+                                        onclick="document.getElementById('myInput2').value = ''">Send
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="room3" ng-controller="ChatController3">
+                <div id="pana3" ng-if="selectedRoom == 3" class="container">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Room 3</div>
+                        <div class="panel-body">
+                            <span ng-repeat="m in messages">
+                                <p style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
+                                <p ng-if="currentUser.uid != m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
+                            </span>
+                            <div class="form-group">
+                                <input id="myInput3" type="text" onkeydown="if (event.keyCode == 13)
+                                        document.getElementById('btn3').click()" class="form-control"
+                                       placeholder="Message here..."
+                                       ng-model="data.messageText">
+                            </div>
+                            <button type="submit" id="btn3" class="btn btn-default" ng-click="send()"
+                                    onclick="document.getElementById('myInput3').value = ''">Send
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="logout" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <div id="rightMenu">
+        <div id="rooms" ng-controller="SelectRoomController">
+            <h3>Rooms</h3>
+            <ul id="roomsUl">
+                <li ng-click="selectRoom(1)">Room1</li>
+                <li ng-click="selectRoom(2)">Room2</li>
+                <li ng-click="selectRoom(3)">Room3</li>
+            </ul>
+        </div>
+
+    </div>
 </div>
 <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
 <script>
@@ -84,10 +140,10 @@
     };
     firebase.initializeApp(config);
     var database = firebase.database();
-    database.ref("usersOnline").on("value", function(onlineUsers){
+    database.ref("usersOnline").on("value", function (onlineUsers) {
         //console.log(onlineUser.val());
         document.getElementById("userUl").innerHTML = "";
-        for(var displayName in onlineUsers.val()){
+        for (var displayName in onlineUsers.val()) {
             var userlist = document.createElement('li');
             userlist.textContent = onlineUsers.val()[displayName].displayName;
             userlist.setAttribute('class', 'note');
@@ -96,7 +152,6 @@
         }
     });
 </script>
-
 <script src="index.js"></script>
 
 </body>

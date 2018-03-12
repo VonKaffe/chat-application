@@ -42,7 +42,9 @@ function register() {
             // An error happened.
         });
 
-        database.ref("users/" + user.uid).set({fullname: fullname});
+        database.ref("users/" + user.uid).set({fullname: fullname,
+                                                displayName: userName});
+
 
     }).catch(function (error) {
         // Handle Errors here.
@@ -71,17 +73,79 @@ function register() {
 
 }
 
-firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-        // User is signed in.
-
-        document.getElementById("usernameHeader").innerHTML = user.displayName;
-        console.log(user.currentUser);
 
 
-    } else {
-        // No user is signed in.
+var app = angular.module('chatRoom', ['firebase']);
+app.run(function($rootScope){
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
+            $rootScope.currentUser = firebase.auth().currentUser;
+            document.getElementById("usernameHeader").innerHTML = user.displayName;
+            console.log(user.currentUser);
 
+
+        } else {
+            // No user is signed in.
+
+        }
+    });
+    $rootScope.selectedRoom = 1;
+
+    console.log(firebase.auth().currentUser);
+});
+
+// Room1
+app.controller('ChatController', function ($scope, $rootScope, $firebaseArray) {
+    var ref = firebase.database().ref().child('messages/room1');
+    $scope.messages = $firebaseArray(ref);
+    $scope.data = {};
+
+    $scope.send =function () {
+        $scope.messages.$add({
+            user: firebase.auth().currentUser.displayName,
+            userid: firebase.auth().currentUser.uid,
+            message: $scope.data.messageText,
+            date: Date.now()
+        });
+    }
+});
+
+// Room2
+app.controller('ChatController2', function ($scope, $rootScope, $firebaseArray) {
+    var ref = firebase.database().ref().child('messages/room2');
+    $scope.messages = $firebaseArray(ref);
+    $scope.data = {};
+
+    $scope.send =function () {
+        $scope.messages.$add({
+            user: firebase.auth().currentUser.displayName,
+            userid: firebase.auth().currentUser.uid,
+            message: $scope.data.messageText,
+            date: Date.now()
+        })
+    }
+});
+
+// Room3
+app.controller('ChatController3', function ($scope, $rootScope, $firebaseArray) {
+    var ref = firebase.database().ref().child('messages/room3');
+    $scope.messages = $firebaseArray(ref);
+    $scope.data = {};
+
+    $scope.send =function () {
+        $scope.messages.$add({
+            user: firebase.auth().currentUser.displayName,
+            userid: firebase.auth().currentUser.uid,
+            message: $scope.data.messageText,
+            date: Date.now()
+        })
+    }
+});
+
+app.controller('SelectRoomController', function ($scope, $rootScope) {
+    $scope.selectRoom =function (room) {
+        $rootScope.selectedRoom = room;
     }
 });
 
