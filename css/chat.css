@@ -9,6 +9,12 @@ body {
     flex-direction: row;
 }
 
+.msg {
+    margin: 0px;
+    padding: 5px;
+
+}
+
 #leftMenu{
     background-color: rebeccapurple;
     width: 20%;
