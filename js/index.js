@@ -8,7 +8,7 @@ function login() {
 
         // Sign-In successful.
         database.ref("usersOnline/" + firebase.auth().currentUser.uid).set({displayName: firebase.auth().currentUser.displayName});
-        window.location.assign("chat.html");
+        window.location.assign("../views/chat.html");
         //console.log(firebase.database().ref().child("usersOnline").set({displayName: firebase.auth().currentUser.displayName}));
 
 
@@ -153,5 +153,5 @@ app.controller('SelectRoomController', function ($scope, $rootScope) {
 function logout() {
     firebase.database().ref("usersOnline/" + firebase.auth().currentUser.uid).remove();
     firebase.auth().signOut();
-    window.location = 'login.html';
+    window.location = '../views/login.html';
 }
