@@ -1,30 +1,3 @@
-function login() {
-    let userEmail = document.getElementById("emailField").value;
-    let userPass = document.getElementById("passField").value;
-
-    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).then(function () {
-        var user = firebase.auth().currentUser;
-        console.log(user);
-
-        // Sign-In successful.
-        database.ref("usersOnline/" + firebase.auth().currentUser.uid).set({displayName: firebase.auth().currentUser.displayName});
-        window.location.assign("../views/chat.html");
-        //console.log(firebase.database().ref().child("usersOnline").set({displayName: firebase.auth().currentUser.displayName}));
-
-
-    }).catch(function (error) {
-        // An error happened.
-        let errorCode = error.code;
-        let errorMessage = error.message;
-
-        window.alert("Error : " + errorMessage);
-        // ...
-    });
-}
-
-
-
-
 function register() {
     let userEmail = document.getElementById("email").value;
     let userPass = document.getElementById("password").value;
@@ -38,6 +11,7 @@ function register() {
             displayName: userName
         }).then(function () {
             // Update successful.
+            window.location = '../views/login.html';
         }).catch(function (error) {
             // An error happened.
         });
@@ -46,15 +20,15 @@ function register() {
                                                 displayName: userName});
 
 
+
     }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         window.alert("Error : " + errorMessage);
         // ...
+
     });
-
-
     /*
     let userName = document.getElementById("username").value;
     let fullname = document.getElementById("fullname").value;
@@ -70,7 +44,6 @@ function register() {
 
     database.child("users").push(users);
     */
-
 }
 
 
@@ -87,6 +60,7 @@ app.run(function($rootScope){
 
         } else {
             // No user is signed in.
+            window.location = '../views/login.html';
 
         }
     });

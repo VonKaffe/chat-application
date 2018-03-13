@@ -23,7 +23,8 @@
     </div>
 
     <div id="username-div">
-        <p id="usernameHeader">de</p>
+        <p id="usernameHeader">Not Logged In!</p>
+
 
     </div>
 </div>
@@ -39,13 +40,15 @@
             </ul>
 
         </div>
+        <button id="logout" onclick="logout()">Logout</button>
 
     </div>
+
 
     <div id="main">
         <div id="chatRoom-div">
             <div id="room1" ng-controller="ChatController">
-                <div id="pana" ng-if="selectedRoom == 1" class="container">
+                <div id="pana" ng-if="selectedRoom == 1">
                     <div class="panel panel-primary">
                         <div class="panel-heading">Room 1</div>
                         <div class="panel-body">
@@ -67,7 +70,7 @@
             </div>
             <div id="room2" ng-controller="ChatController2">
                 <div>
-                    <div id="pana2" ng-if="selectedRoom == 2" class="container">
+                    <div id="pana2" ng-if="selectedRoom == 2">
                         <div class="panel panel-primary">
                             <div class="panel-heading">Room 2</div>
                             <div class="panel-body">
@@ -90,7 +93,7 @@
                 </div>
             </div>
             <div id="room3" ng-controller="ChatController3">
-                <div id="pana3" ng-if="selectedRoom == 3" class="container">
+                <div id="pana3" ng-if="selectedRoom == 3">
                     <div class="panel panel-primary">
                         <div class="panel-heading">Room 3</div>
                         <div class="panel-body">
@@ -111,7 +114,7 @@
                     </div>
                 </div>
             </div>
-            <button id="logout" onclick="logout()">Logout</button>
+
         </div>
     </div>
 
@@ -124,6 +127,7 @@
                 <li ng-click="selectRoom(3)">Room3</li>
             </ul>
         </div>
+
 
     </div>
 </div>
