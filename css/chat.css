@@ -71,6 +71,7 @@ body {
 #roomsUl{
     list-style: none;
     padding-left: 0px;
+    cursor: pointer;
 }
 
 #main{
@@ -163,3 +164,14 @@ body {
     border-radius: 20px;
     border-color: gainsboro;
 }
+
+div.panel.panel-primary > .panel-heading{
+    background-color: purple;
+}
+
+div.panel.panel-primary{
+
+    border-color: purple;
+
+}
+
