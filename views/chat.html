@@ -52,10 +52,14 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">Room 1</div>
                         <div class="panel-body">
-                            <span ng-repeat="m in messages">
-                                <p class="msg" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
-                                <p class="msg" ng-if="currentUser.uid != m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
-                            </span>
+                            <div class="msgSpan" ng-repeat="m in messages">
+                                <p class="msgHeader" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.user}}</p>
+                                <p class="msg" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.message}}</p>
+                                <p class="msgTime" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.date | date:'medium'}}</p>
+                                <p class="msgHeader" ng-if="currentUser.uid != m.userid">{{m.user}}</p>
+                                <p class="msg" ng-if="currentUser.uid != m.userid">{{m.message}}</p>
+                                <p class="msgTime" ng-if="currentUser.uid != m.userid">{{m.date | date:'medium'}}</p>
+                            </div>
                             <div class="form-group">
                                 <input id="myInput" type="text" onkeydown="if (event.keyCode == 13)
                             document.getElementById('btn').click()" class="form-control" placeholder="Message here..."
@@ -74,10 +78,14 @@
                         <div class="panel panel-primary">
                             <div class="panel-heading">Room 2</div>
                             <div class="panel-body">
-                               <span ng-repeat="m in messages">
-                                <p class="msg" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
-                                <p class="msg" ng-if="currentUser.uid != m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
-                            </span>
+                                <div class="msgSpan" ng-repeat="m in messages">
+                                    <p class="msgHeader" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.user}}</p>
+                                    <p class="msg" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.message}}</p>
+                                    <p class="msgTime" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.date | date:'medium'}}</p>
+                                    <p class="msgHeader" ng-if="currentUser.uid != m.userid">{{m.user}}</p>
+                                    <p class="msg" ng-if="currentUser.uid != m.userid">{{m.message}}</p>
+                                    <p class="msgTime" ng-if="currentUser.uid != m.userid">{{m.date | date:'medium'}}</p>
+                                </div>
                                 <div class="form-group">
                                     <input id="myInput2" type="text" onkeydown="if (event.keyCode == 13)
                         document.getElementById('btn2').click()" class="form-control" placeholder="Message here..."
@@ -97,10 +105,14 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">Room 3</div>
                         <div class="panel-body">
-                            <span ng-repeat="m in messages">
-                                <p class="msg" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
-                                <p class="msg" ng-if="currentUser.uid != m.userid">{{m.user}} {{m.message}} - {{m.date | date:'medium'}}</p>
-                            </span>
+                            <div class="msgSpan" ng-repeat="m in messages">
+                                <p class="msgHeader" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.user}}</p>
+                                <p class="msg" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.message}}</p>
+                                <p class="msgTime" style="background-color: mediumpurple; color: white" ng-if="currentUser.uid == m.userid">{{m.date | date:'medium'}}</p>
+                                <p class="msgHeader" ng-if="currentUser.uid != m.userid">{{m.user}}</p>
+                                <p class="msg" ng-if="currentUser.uid != m.userid">{{m.message}}</p>
+                                <p class="msgTime" ng-if="currentUser.uid != m.userid">{{m.date | date:'medium'}}</p>
+                            </div>
                             <div class="form-group">
                                 <input id="myInput3" type="text" onkeydown="if (event.keyCode == 13)
                                         document.getElementById('btn3').click()" class="form-control"

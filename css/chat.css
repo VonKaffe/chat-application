@@ -12,10 +12,22 @@ body {
 .msg {
     margin: 0px;
     padding: 5px;
-
 }
 
-#msgSpan{
+.msgHeader {
+    margin: 0px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.msgTime {
+    margin: 0px;
+    padding: 5px;
+    font-size: 8px;
+}
+
+.msgSpan{
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
 }
