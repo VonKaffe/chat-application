@@ -1,3 +1,4 @@
+// Register
 function register() {
     let userEmail = document.getElementById("email").value;
     let userPass = document.getElementById("password").value;
@@ -46,8 +47,7 @@ function register() {
     */
 }
 
-
-
+// Main user function
 var app = angular.module('chatRoom', ['firebase']);
 app.run(function($rootScope){
     firebase.auth().onAuthStateChanged(function (user) {
@@ -117,13 +117,14 @@ app.controller('ChatController3', function ($scope, $rootScope, $firebaseArray) 
     }
 });
 
+// Change room controller
 app.controller('SelectRoomController', function ($scope, $rootScope) {
     $scope.selectRoom =function (room) {
         $rootScope.selectedRoom = room;
     }
 });
 
-
+// Logout
 function logout() {
     firebase.database().ref("usersOnline/" + firebase.auth().currentUser.uid).remove();
     firebase.auth().signOut();

@@ -1,3 +1,4 @@
+// Login
 function login() {
     let userEmail = document.getElementById("emailField").value;
     let userPass = document.getElementById("passField").value;

@@ -156,6 +156,8 @@
     };
     firebase.initializeApp(config);
     var database = firebase.database();
+
+    // Print Users online list
     database.ref("usersOnline").on("value", function (onlineUsers) {
         //console.log(onlineUser.val());
         document.getElementById("userUl").innerHTML = "";
