@@ -12,7 +12,7 @@ function register() {
             displayName: userName
         }).then(function () {
             // Update successful.
-            window.location = '../login.html';
+            window.location = '../views/login.html';
         }).catch(function (error) {
             // An error happened.
         });
@@ -60,7 +60,7 @@ app.run(function($rootScope){
 
         } else {
             // No user is signed in.
-            window.location = '../login.html';
+            window.location = '../views/login.html';
 
         }
     });
@@ -128,5 +128,5 @@ app.controller('SelectRoomController', function ($scope, $rootScope) {
 function logout() {
     firebase.database().ref("usersOnline/" + firebase.auth().currentUser.uid).remove();
     firebase.auth().signOut();
-    window.location = '../login.html';
+    window.location = '../views/login.html';
 }
