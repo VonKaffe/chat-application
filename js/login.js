@@ -10,7 +10,7 @@ function login() {
         // Sign-In successful.
         database.ref("usersOnline/" + firebase.auth().currentUser.uid).set({displayName: firebase.auth().currentUser.displayName});
 
-        window.location.assign("../views/index.html");
+        window.location.assign("../index.html");
         //console.log(firebase.database().ref().child("usersOnline").set({displayName: firebase.auth().currentUser.displayName}));
 
 
